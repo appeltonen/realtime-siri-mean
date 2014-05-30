@@ -1,0 +1,39 @@
+MEAN stack app ohje
+Alex Peltonen 2014
+
+MEAN on lyhenne teknologioista
+-MongoDB
+-Express
+-Angular
+-Node
+
+
+Näin rakennat MEAN stack -sovelluksen
+-------------------------------------
+
+Luodaan kansio, esimerkiksi nimeltään starter:
+$ mkdir starter && cd starter
+
+Node.js -ohjelmat tarvitsevat aluksi riippuvuudet listaavan tiedoston package.json
+
+// package.json
+{ 
+  "name" : "starter-node-angular",
+  "main" : "server.js",
+  "dependencies" : {
+    "express" : "~3.5.0",
+    "mongoose" : "~3.6.13"
+    }
+}
+
+Ohjelman riippuvuudet ovat siis Express ja Mongoose. Express on sovelluskehys Node.js sovellusten kehitykseen. Mongoose on DBMS MongoDB-tietokantojen hallintaan.
+
+Asennetaan riippuvuudet Node Package Managerilla:
+$ npm install
+
+Riippuvuudet asentuvat automaattisesti luotavaan kansioon node_modules.
+
+Tehdään pohja Node-sovellukselle tiedostoon server.js:
+
+// server.js
+
