@@ -19,10 +19,12 @@ module.exports = function (socket) {
 
 	http.request(options, function(res){
 	  var json = '';
+	  console.log('STATUS ' + res.statusCode)
 	  res.on('data', function(chunk){
 	  	json += chunk.toString();
 	  });
 	  res.on('end', function(){
+	  	if(json==='foo') return;
 	  	json = JSON.parse(json);
 	  	var location = json.Siri.ServiceDelivery.VehicleMonitoringDelivery[0].VehicleActivity[0].MonitoredVehicleJourney.VehicleLocation;
 	    socket.emit('send:move', {
