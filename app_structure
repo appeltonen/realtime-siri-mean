@@ -2,6 +2,7 @@
 	----- routes.js
 	- config
         ----- db.js 
+    - models <!-- mongoose models -->
 	- node_modules <!-- created by npm install -->
 	- public <!-- all frontend and angular stuff -->
 	----- css
@@ -14,8 +15,6 @@
 	----- libs <!-- created by bower install -->
 	----- views 
 	---------- home.html
-	---------- nerd.html
-	---------- geek.html
 	----- index.html
 	- .bowerrc <!-- tells bower where to put files (public/libs) -->
 	- bower.json <!-- tells bower which files we need -->

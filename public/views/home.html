@@ -1,4 +1,5 @@
-<div>Hello?{{name}}</div>
-<google-map ng-controller="AppCtrl" center="map.center" zoom="map.zoom">
-	<marker coords="moving"></marker>
+<google-map ng-controller="AppCtrl" center="map.center" zoom="map.zoom" options="options">
+	<marker coords='map.marker.pos' icon='map.marker.icon'>
+	</marker>
 </google-map>
+
