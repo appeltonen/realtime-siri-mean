@@ -16,7 +16,7 @@ module.exports = function (socket) {
 
 	http.request(options, function(res){
 	  var jsondata = '';
-	  console.log('STATUS ' + res.statusCode)
+	  //console.log('STATUS ' + res.statusCode)
 	  res.on('data', function(chunk){
 	  	jsondata += chunk.toString();
 	  });
@@ -26,7 +26,6 @@ module.exports = function (socket) {
 	  	//var location = json.Siri.ServiceDelivery.VehicleMonitoringDelivery[0].VehicleActivity[0].MonitoredVehicleJourney.VehicleLocation;
 	    socket.emit('send:move', jsondata);
 	    //print = 'Longitude: ' + location.Longitude + ', Latitude: ' + location.Latitude;
-	    console.log('Sent JSON at ' + Date.now());
 	  })
 
 	}).on('error', function(e) {
