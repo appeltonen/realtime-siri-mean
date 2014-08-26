@@ -1,7 +1,5 @@
-/*
- * Serve content over a socket
- */
-
+//Send json over socket
+//Time interval 1000 ms equals minimum allowed interval between HTTP requests to ITSFactory API
 module.exports = function (socket) {
 	
   setInterval(function () {
@@ -16,16 +14,12 @@ module.exports = function (socket) {
 
 	http.request(options, function(res){
 	  var jsondata = '';
-	  //console.log('STATUS ' + res.statusCode)
 	  res.on('data', function(chunk){
 	  	jsondata += chunk.toString();
 	  });
 	  res.on('end', function(){
 	  	if(jsondata ==='foo') return;
-	  	//json = JSON.parse(json);
-	  	//var location = json.Siri.ServiceDelivery.VehicleMonitoringDelivery[0].VehicleActivity[0].MonitoredVehicleJourney.VehicleLocation;
 	    socket.emit('send:move', jsondata);
-	    //print = 'Longitude: ' + location.Longitude + ', Latitude: ' + location.Latitude;
 	  })
 
 	}).on('error', function(e) {

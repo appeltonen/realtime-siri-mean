@@ -1,1 +1,18 @@
-.angular-google-map-container { height: 550px; }
+.angular-google-map-container { height: 450px; }
+#chart-container {
+	height: 150px;
+	width: 600px;
+	position: relative;
+	border: 1px solid #999999;
+	background-color #cccccc: 
+}
+#chart {
+	position: relative;
+	left: 40px;
+}
+#y_axis {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 40px;
+}

@@ -4,8 +4,11 @@
 	"dependencies": {
 		"bootstrap": "latest",
 		"font-awesome": "latest",
+		"jquery": "latest",
 		"animate.css": "latest",
 		"angular": "latest",
-		"angular-route": "latest"	
+		"angular-route": "latest",
+		"d3": "latest",
+    	"rickshaw": "latest"
 	}
 }

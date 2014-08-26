@@ -6,5 +6,6 @@ angular.module('myApp',
 	'appRoutes', 
 	'controllers',
 	'services',
+	//'directives',
 	'google-maps', 
 	'btford.socket-io']);

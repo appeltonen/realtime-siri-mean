@@ -1,10 +1,15 @@
 <google-map ng-controller="AppCtrl" center="map.center" zoom="map.zoom" options="options" draggable="map.drggable">
-	<!--<marker coords='map.marker.pos' icon='map.marker.icon'>
-	</marker>-->
-	<!--<markers models="busMarkers" coords="'self'" icon="'icon'"></markers>-->
 	<markers>
 		<marker ng-repeat="marker in busMarkers" coords="marker.pos" icon="marker.icon">			
 		</marker>
 	</markers>
 </google-map>
+
+<p>
+<strong>Active vehicles: </strong><span class="label label-primary">{{active}}</span>
+<strong>Vehicles on time: </strong><span class="label label-success">{{timely}}</span>
+<strong>Vehicles delayed: </strong><span class="label label-warning">{{delayed}}</span>
+</p>
+
+<activity-graph></activity-graph>
 

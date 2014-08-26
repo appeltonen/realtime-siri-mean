@@ -6,13 +6,25 @@
 	<title>PubTransport</title>
 
 	<!-- CSS -->
+
 	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="libs/rickshaw/rickshaw.css">
 	<link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
 
-	<!-- JS -->
+	<!-- Javascript libraries -->
+
+	<!-- Rickshaw depends on jQuery, replace JQlite for AngularJS -->
+	<script src="libs/jquery/dist/jquery.js"></script>
+
 	<script  src="libs/angular/angular.js"></script>
 	<script  src="libs/angular-route/angular-route.js"></script>
-	<!-- include socket.io client-->
+
+	<!-- Rickshaw depends on d3 -->
+	<script src="libs/d3/d3.js"></script>
+	<!-- Rickshaw for plotting timeline graph -->
+	<script src="libs/rickshaw/rickshaw.js"></script>
+
+	<!-- Include socket.io client-->
 	<script  src="libs/angular-socket-io/mock/socket-io.js"></script>
 	<!-- Include Brian Ford's Angular socket.io directive -->
 	<script  src="libs/angular-socket-io/socket.js"></script>
@@ -20,20 +32,28 @@
 	<script src="libs/socket.io-client/socket.io.js"></script>
 
 		
-	<!-- ANGULAR CUSTOM -->
+	<!-- Angular modules -->
 	<script  src="js/controllers.js"></script>
 	<script  src="js/services.js"></script>
 	<script  src="js/filters.js"></script>
 	<script  src="js/directives.js"></script>
 	<script src="js/appRoutes.js"></script>
 	<script src="js/app.js"></script>
+
+	<!-- Google maps -->
 	<script src='https://maps.googleapis.com/maps/api/js?&sensor=false'></script>
 	<script src='libs/underscore-min.js'></script>
+
+	<!-- Google Maps Angular directives -->
 	<script src='libs/angular-google-maps.js'></script>
 
 </head>
 <body ng-app="myApp" ng-controller="AppCtrl">
+
 <div class="container">
+
+<h1>PubTransport <small>A visualization of Tampere Public Transport realtime SIRI data</small></h1>
+
 
 	<!-- ANGULAR DYNAMIC CONTENT -->
 	<div ng-view></div>
