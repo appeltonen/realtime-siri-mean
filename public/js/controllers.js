@@ -4,15 +4,6 @@ angular.module('controllers', [])
 .controller( 'AppCtrl', function ($scope, socket) {
     var mapstyles = [
     {
-      "featureType": "poi.park",
-      "elementType": "geometry",
-      "stylers": [
-        { "color": "#be4880" },
-        { "saturation": 1 },
-        { "weight": 0.4 },
-        { "visibility": "off" }
-      ]
-    },{
       "featureType": "road",
       "elementType": "geometry",
       "stylers": [
@@ -26,16 +17,6 @@ angular.module('controllers', [])
         { "weight": 0.6 },
         { "gamma": 0.16 },
         { "color": "#282c27" },
-        { "visibility": "off" }
-      ]
-    },{
-      "featureType": "landscape.natural",
-      "stylers": [
-        { "visibility": "off" }
-      ]
-    },{
-      "featureType": "landscape.man_made",
-      "stylers": [
         { "visibility": "off" }
       ]
     },{
@@ -150,62 +131,6 @@ angular.module('controllers', [])
       $scope.timely = $scope.active - $scope.delayed;
     });
 
-}).directive('activityGraph', function(){
-    return{
-      restrict: 'E',
-      replace: true,
-      template: '<div id="chart-container">' + 
-                  '<div id="y_axis"></div>' +
-                  '<div id="graph"></div>' +
-                '</div>',
-      link: function(scope, element, attrs, controllers){
-        var graph = null;
-        var interval = 1000;
-
-        graph = new Rickshaw.Graph( {
-          element: document.getElementById('graph'),
-          width: 600,
-          height: 150,
-          max: 200,
-          renderer: 'line',
-          series: new Rickshaw.Series.FixedDuration([
-            {name: 'active', color: '#428bca'},
-            {name: 'timely', color: '#5cb85c'},
-            {name: 'delayed', color: '#f0ad4e'}
-            ], undefined, {
-            timeInterval: interval,
-            maxDataPoints: 100,
-            timeBase: new Date().getTime() / 1000
-          }) 
-        });
-
-        var y_ticks = new Rickshaw.Graph.Axis.Y( {
-          graph: graph,
-          orientation: 'left',
-          tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
-          element: document.getElementById('y_axis')
-        });
-
-        graph.render();
-
-        //set graph to update per interval variable
-        var iv = setInterval( function() {
-          //reference controller's method
-          //Note: This results in tight coupling of the controller and the directive
-          var data = {
-            active: scope.updateNumberOfActive(),
-            timely: scope.updateNumberOfTimely(),
-            delayed: scope.updateNumberOfDelayed()
-          };
-
-          //add data to graph
-          graph.series.addData(data);
-          //update graph
-          graph.render();
-        }, interval);
-      }
-    };
-  }
-);
+});
   
 

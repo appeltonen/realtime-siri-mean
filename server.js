@@ -25,7 +25,7 @@ mongoose.connect(dbconfig.url);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Connection error:'));
 db.once('open', function callback () {
-	console.log('Connected to database.');
+	console.log('Database connection established.');
 
 	//create a new Station model instance
 	var Station = require('./models/station').Station;
@@ -82,6 +82,6 @@ io.sockets.on('connection', require('./app/socket'));
 
 //Start server
 server.listen(app.get('port'), function () {
-  console.log('Express server listening on port ' + app.get('port'));
+  console.log('Server listening on localhost:' + app.get('port') + '\nCtrl+C to quit server process.');
 });
 
