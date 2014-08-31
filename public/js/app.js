@@ -1,7 +1,7 @@
 'use strict';
 
 // public/js/app.js
-angular.module('myApp', 
+angular.module('app', 
 	['ngRoute', 
 	'appRoutes', 
 	'controllers',
